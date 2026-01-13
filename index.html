@@ -25,8 +25,9 @@
 
     <script>
         // REPLACE THIS URL WITH YOUR PUBLISHED CSV URL
-        const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRie1Mw-i08aGCyxDXixxXlWeE1xRPYlPa899Wd-KOxFxgYI8lVw9ZsU7khyMFC6wcrIp2RiLO8uKcT/pubhtml?gid=1386338118&single=true";
-
+// Replace YOUR_ID with your long Spreadsheet ID
+// Replace Dashboard with the EXACT name of your dashboard sheet tab
+const CSV_URL = "https://docs.google.com/spreadsheets/d/1YA0q-J7ArOKkcRS0sz6-2DMz6Hwe18emmJpR2nyyGME/gviz/tq?tqx=out:csv&sheet=Dashboard";
         async function loadSchedule() {
             const response = await fetch(CSV_URL);
             const data = await response.text();
