@@ -1,199 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <script src="jquery.js"></script>  
-<style>
-	div>span {
-		color:red;
-		font-weight:strong;
-	}
-</style>	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier de Service</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 600px; }
+        h2 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: #3498db; color: white; padding: 12px; font-size: 0.9em; }
+        td { padding: 12px; border-bottom: 1px solid #eee; text-align: center; font-size: 0.85em; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .task-name { font-weight: bold; color: #2c3e50; text-align: left; background: #ecf0f1; width: 30%; }
+        .highlight { color: #e67e22; font-weight: bold; }
+    </style>
 </head>
-
 <body>
-<div id="help"><a href="#helptxt">Fanampiana</a></div>
-    <div class="container">
-        <div class="row">
-            <h1>KAONTY RONONO</h1>
-        </div>
-		
-        <div class="row">
-            <div class="form-group">
-                <label for="input1">Ampidiro ny isa:</label>
-                <input type="text" class="form-control number" id="input1" required pattern="(^[0-9]{1,2}\s)*[0-9]$|(^[0-9]{1,2}(/.5){0,1}\s)*[0-9]$">
-                <input type="button" class="form-control number" id="btn" onclick="upd();" value="jereo">
-				<input type="button" class="form-control number" id="btn" onclick="efface();" value="vonoy">
-				<p></p>
-				<div id="list">Isan'ny isa nampidirinao: <span id="isa"></span></div>
-                
-                <!--<div id="list2">TANDREMO! ampitomboina 2-1,5-1-0,5 milahatra<BR /></div> -->
-				<div id="list">Ny Totaliny amin'ny litatra: <a href="#" onclick="alert('TANDREMO! isa ankavia totaliny avy nampitomboina 2-1,5-1-0,5 milahatra; ny ankavanana totaliny navela amin izao')"> Inona ireo?   </a><span id="total"></span></div>
-				<div id="list">Vidiny (Tovo)  <a href="#" onclick="tovo()"> Asehoy   </a><a href="#" onclick="document.getElementById('vidiny').innerHTML='';">     Afeno </a><span id="vidiny"></span></div>
-				<div id="list">Vidiny (hafa)  <a href="#" onclick="hafa()"> Asehoy   </a><a href="#" onclick="document.getElementById('vidinyt').innerHTML='';">     Afeno </a><span id="vidinyt"></span></div>	
-<div id="list1">Ny isa nampidirinao: <a href="#" onclick="answerInt.forEach(tanisa)"> Asehoy</a><a href="#" onclick="document.getElementById('list0').innerHTML='';">     Afeno </a><BR /><span id="list0"></span></div>				
-            </div>
-            
-
+    <div class="card">
+        <h2>Planning des Services</h2>
+        <table id="scheduleTable">
+            </table>
     </div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-<div id="helptxt" name="bookmark"><p>
-FANAMPIANA:
-Ampidiro eo amin'ny faritra voatokana ny isa rehetra izay hatao fampitomboana amin'ny fatra sy atambatra avy eo. <br />Elanelano espace ny tsirairay avy amin'ireo isa ampidirina ireo.<br />
-Toy izao no filaharan'ny fampitomboana ny fatrany 1,5-2-1-0,5.<br />
-Tsy maintsy ampidirina ny 0 satria ny laharany no ampitomboina. Ny isan'ny isa nampidirinao izany dia tsy maintsy divisible par 4.<br />
-Raha misy NaN hitanao eo amin'ny valiny dia misy diso izay ny isa nampidirinao: mety ho lasa , na ; ny point manasaraka ny antsa-litatra na misy espace double na misy litera hava mihitsy voasoratra.<br>
-</p><a href="#help">Ambony</a></div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-    <script type="text/javascript">
-	var aaa=[];
-    var answerInt=[]; 
-	const vidiny1=1500;
-	const vidiny2=1400;
-function sumar(arr){
-    lg=arr.length;
-    sum=0
-    for (i=0;i<lg;i++){
-        sum=sum+arr[i];
-    }
-    return sum
-}
-function tanisa(item, index) {
-  document.getElementById("list0").innerHTML = document.getElementById("list0").innerHTML + parseInt(index+1) + ": " + item + "<br>"; 
-}
-function efface(idd){
-	//document.getElementById(idd).innerHTML="";
-	document.getElementById("total").innerHTML="";
-    //document.getElementById("listv").innerHTML="";
-	document.getElementById("list0").innerHTML="";
-	document.getElementById("isa").innerHTML="";
-	document.getElementById("vidiny").innerHTML="";
-	document.getElementById("vidinyt").innerHTML="";
-	answerInt=[];
-}
-function hafa(){
-	document.getElementById("vidinyt").innerHTML=sumar(answerInt)*vidiny2+" / "+sumar(answerInt)*vidiny2*5;
-}
-function tovo(){
-	nnn=sumar(aaa)*vidiny1+" / "+sumar(aaa)*vidiny1*5;
-	document.getElementById("vidiny").innerHTML=nnn; //sumar(aaa)*vidiny1+" / "+sumar(aaa)*vidiny1*5;
-	//localStorage.setItem('montant',nnn);
-	//alert(localStorage.getItem('montant'));
-	console.log(localStorage.getItem('siteData'));
-}
-    function upd(){
-        //var bbb=[];
-		
-		efface();		
-		var xxx;
-        xxx=document.getElementById("input1").value;
-		//xxx=xxx.replace(/  +/g,' ');
-		
-		xxx=xxx.replace(/\t/g,' ');
-		xxx=xxx.replace(/\s{2,}/g,' ');
-		xxx=xxx.replace(/\.{2,}/g,'.');
-		xxx=xxx.trim();
-		//alert(xxx);
-        	
-		ck=check(xxx);
-		if (ck){
-			
-			aaa=convert(xxx);
-			lll=answerInt.length;
-			document.getElementById("isa").innerHTML=lll;//answerInt.length;
-				
-			document.getElementById("total").innerHTML=sumar(aaa)+" / "+sumar(answerInt);
-			//document.getElementById("listv").innerHTML=aaa;
-			//forEach (dns in answerInt)
-			//document.getElementById("list0").innerHTML=answerInttx;
-			//document.getElementById("vidiny").innerHTML=sumar(aaa)*vidiny1+" / "+sumar(answerInt)*vidiny2;
-			//document.getElementById("vidinyt").innerHTML=sumar(answerInt)*vidiny2;
-		} else {
-			alert("misy fahadisoana");
-		}
-	
-    
-}
-function check(input){
-	return !(/[^0-9^ ^.]/.test(input));
-	
-}
 
-function convert(txt){
-        var result=[];
-		var xxx;
-		var txt;
+    <script>
+        // REPLACE THIS URL WITH YOUR PUBLISHED CSV URL
+        const CSV_URL = "YOUR_LINK_HERE";
 
-        txt.split(' ').forEach(function(item){
-            answerInt.push(parseFloat(item));
-        }); 
-        
-    if (answerInt.length>0)    {   
-        for (i=0;i<answerInt.length;i++){
-            xxx=i%4;
-            result.push(0);
-            switch(xxx){
-                case 0:
-                result[i]=result[i]+answerInt[i]*2;
-                break;
-                case 1:
-                result[i]=result[i]+answerInt[i]*1.5;
-                break;
-                case 2:
-                result[i]=result[i]+answerInt[i];
-                break;
-                case 3:
-                result[i]=result[i]+answerInt[i]*0.5;
-                break;                
-            };
-        
+        async function loadSchedule() {
+            const response = await fetch(https://docs.google.com/spreadsheets/d/e/2PACX-1vRie1Mw-i08aGCyxDXixxXlWeE1xRPYlPa899Wd-KOxFxgYI8lVw9ZsU7khyMFC6wcrIp2RiLO8uKcT/pub?gid=1386338118&single=true&output=csv);
+            const data = await response.text();
+            const rows = data.split("\n").map(row => row.split(","));
+            
+            let tableHTML = "";
+            rows.forEach((row, index) => {
+                if (row.length < 2) return;
+                tableHTML += "<tr>";
+                row.forEach((cell, i) => {
+                    const tag = index === 0 ? "th" : "td";
+                    const className = i === 0 ? "task-name" : "";
+                    tableHTML += `<${tag} class="${className}">${cell.replace(/"/g, '')}</${tag}>`;
+                });
+                tableHTML += "</tr>";
+            });
+            document.getElementById("scheduleTable").innerHTML = tableHTML;
         }
-    };
-        return result;
-    }
+        loadSchedule();
     </script>
-
 </body>
-
 </html>
