@@ -25,10 +25,10 @@
 
     <script>
         // REPLACE THIS URL WITH YOUR PUBLISHED CSV URL
-        const CSV_URL = "YOUR_LINK_HERE";
+        const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRie1Mw-i08aGCyxDXixxXlWeE1xRPYlPa899Wd-KOxFxgYI8lVw9ZsU7khyMFC6wcrIp2RiLO8uKcT/pubhtml?gid=1386338118&single=true";
 
         async function loadSchedule() {
-            const response = await fetch(https://docs.google.com/spreadsheets/d/e/2PACX-1vRie1Mw-i08aGCyxDXixxXlWeE1xRPYlPa899Wd-KOxFxgYI8lVw9ZsU7khyMFC6wcrIp2RiLO8uKcT/pub?gid=1386338118&single=true&output=csv);
+            const response = await fetch(CSV_URL);
             const data = await response.text();
             const rows = data.split("\n").map(row => row.split(","));
             
