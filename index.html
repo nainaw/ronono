@@ -1,52 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendrier de Service</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 600px; }
-        h2 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th { background: #3498db; color: white; padding: 12px; font-size: 0.9em; }
-        td { padding: 12px; border-bottom: 1px solid #eee; text-align: center; font-size: 0.85em; }
-        tr:nth-child(even) { background: #f9f9f9; }
-        /*.task-name { font-weight: bold; color: white; text-align: left; background: #3498db; width: 30%; }*/
-        .highlight { color: #e67e22; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <h2>Planning des Services</h2>
-        <table id="scheduleTable">
-            </table>
-    </div>
+### FANAFODY NAINA
 
-    <script>
-        // REPLACE THIS URL WITH YOUR PUBLISHED CSV URL
-// Replace YOUR_ID with your long Spreadsheet ID
-// Replace Dashboard with the EXACT name of your dashboard sheet tab
-const CSV_URL = "https://docs.google.com/spreadsheets/d/1YA0q-J7ArOKkcRS0sz6-2DMz6Hwe18emmJpR2nyyGME/gviz/tq?tqx=out:csv&sheet=Dashboard";
-        async function loadSchedule() {
-            const response = await fetch(CSV_URL);
-            const data = await response.text();
-            const rows = data.split("\n").map(row => row.split(","));
-            
-            let tableHTML = "";
-            rows.forEach((row, index) => {
-                if (row.length < 2) return;
-                tableHTML += "<tr>";
-                row.forEach((cell, i) => {
-                    const tag = index === 0 ? "th" : "td";
-                    const className = i === 0 ? "task-name" : "";
-                    tableHTML += `<${tag} class="${className}">${cell.replace(/"/g, '')}</${tag}>`;
-                });
-                tableHTML += "</tr>";
-            });
-            document.getElementById("scheduleTable").innerHTML = tableHTML;
-        }
-        loadSchedule();
-    </script>
-</body>
-</html>
+| Fanafody |  Maraina |  Atoandro |  Hariva | Alina | Aloh. sak | Aor. sak. |
+|--|---|---|---|--|--|--|
+| Ody vato |  ------ |  -------- |  ------- |  |  |  |
+|      Furosemide     |   |  X |   |  | X |  |
+|        Turbovas        |   |   |   | X |  |  |
+|            Madetoxyl            |  X |   |  X |  |  | X |
+|                 Creon                |   |   |   |  |  |  |
+|                   Spasfon                   |  1 |  0 |  1 |  |  |  |
+|                       Protorange                      |   |   |  X |  | X |  |
