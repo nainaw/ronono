@@ -1,263 +1,130 @@
-
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>fanafody</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Medicines</title>
 
-html {
-color: #1a1a1a;
-background-color: #fdfdfd;
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f7fb;
+    margin:0;
+    padding:20px;
 }
-body {
-margin: 0 auto;
-max-width: 36em;
-padding-left: 50px;
-padding-right: 50px;
-padding-top: 50px;
-padding-bottom: 50px;
-hyphens: auto;
-overflow-wrap: break-word;
-text-rendering: optimizeLegibility;
-font-kerning: normal;
-}
-@media (max-width: 600px) {
-body {
-font-size: 0.9em;
-padding: 12px;
-}
-h1 {
-font-size: 1.8em;
-}
-}
-@media print {
-html {
-background-color: white;
-}
-body {
-background-color: transparent;
-color: black;
-font-size: 12pt;
-}
-p, h2, h3 {
-orphans: 3;
-widows: 3;
-}
-h2, h3, h4 {
-page-break-after: avoid;
-}
-}
-p {
-margin: 1em 0;
-}
-a {
-color: #1a1a1a;
-}
-a:visited {
-color: #1a1a1a;
-}
-img {
-max-width: 100%;
-}
-svg {
-height: auto;
-max-width: 100%;
-}
-h1, h2, h3, h4, h5, h6 {
-margin-top: 1.4em;
-}
-h5, h6 {
-font-size: 1em;
-font-style: italic;
-}
-h6 {
-font-weight: normal;
-}
-ol, ul {
-padding-left: 1.7em;
-margin-top: 1em;
-}
-li > ol, li > ul {
-margin-top: 0;
-}
-blockquote {
-margin: 1em 0 1em 1.7em;
-padding-left: 1em;
-border-left: 2px solid #e6e6e6;
-color: #606060;
-}
-code {
-font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-font-size: 85%;
-margin: 0;
-hyphens: manual;
-}
-pre {
-margin: 1em 0;
-overflow: auto;
-}
-pre code {
-padding: 0;
-overflow: visible;
-overflow-wrap: normal;
-}
-.sourceCode {
-background-color: transparent;
-overflow: visible;
-}
-hr {
-border: none;
-border-top: 1px solid #1a1a1a;
-height: 1px;
-margin: 1em 0;
-}
-table {
-margin: 1em 0;
-border-collapse: collapse;
-width: 100%;
-overflow-x: auto;
-display: block;
-font-variant-numeric: lining-nums tabular-nums;
-}
-table caption {
-margin-bottom: 0.75em;
-}
-tbody {
-margin-top: 0.5em;
-border-top: 1px solid #1a1a1a;
-border-bottom: 1px solid #1a1a1a;
-}
-th {
-border-top: 1px solid #1a1a1a;
-padding: 0.25em 0.5em 0.25em 0.5em;
-}
-td {
-padding: 0.125em 0.5em 0.25em 0.5em;
-}
-header {
-margin-bottom: 4em;
-text-align: center;
-}
-#TOC li {
-list-style: none;
-}
-#TOC ul {
-padding-left: 1.3em;
-}
-#TOC > ul {
-padding-left: 0;
-}
-#TOC a:not(:hover) {
-text-decoration: none;
-}
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 
-ul.task-list[class]{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-font-size: inherit;
-width: 0.8em;
-margin: 0 0.8em 0.2em -1.6em;
-vertical-align: middle;
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th, td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+th{
+    background:#2c7be5;
+    color:white;
+}
+
+tr:hover{
+    background:#f1f5ff;
+}
+
+.check{
+    text-align:center;
+}
+
+footer{
+    margin-top:20px;
+    text-align:center;
+    font-size:0.9em;
+    color:#666;
 }
 </style>
+
 </head>
+
 <body>
-<section id="fanafody-naina" class="level3">
-<h3>FANAFODY NAINA (IMRA Andranonahoatra, fin Janvier 2026)</h3>
+
+<div class="container">
+
+<h1>📋 My Medicines</h1>
+
 <table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-</colgroup>
-<thead>
 <tr>
-<th>Fanafody</th>
-<th>Maraina</th>
-<th>Atoandro</th>
-<th>Hariva</th>
-<th>Alina</th>
-<th>Aloh. sak</th>
-<th>Aor. sak.</th>
+<th>✓</th>
+<th>Medicine</th>
+<th>Dose</th>
+<th>When</th>
 </tr>
-</thead>
-<tbody>
+
 <tr>
+<td class="check"><input type="checkbox"></td>
+<td>Tres Orix sp</td>
+<td>1 famarana lehibe</td>
+<td>Alina</td>
+</tr>
+
+<tr>
+<td class="check"><input type="checkbox"></td>
+<td>Protorannge sp</td>
+<td>1 sotro lehibe</td>
+<td>30 mn alohan'ny sakafo atoandro</td>
+</tr>
+
+<tr>
+<td class="check"><input type="checkbox"></td>
+<td>Tanjake</td>
+<td>1 sotro lehibe maraina + 1 sotro lehibe atoandro</td>
+<td>Maraina & Atoandro</td>
+</tr>
+
+<tr>
+<td class="check"><input type="checkbox"></td>
 <td>Ody vato</td>
-<td>——</td>
-<td>——–</td>
-<td>——-</td>
-<td></td>
-<td></td>
-<td></td>
+<td>-</td>
+<td>Atao rano fisotro</td>
 </tr>
+
 <tr>
-<td>Furosemide</td>
-<td></td>
-<td>X</td>
-<td></td>
-<td></td>
-<td>X</td>
-<td></td>
+<td class="check"><input type="checkbox"></td>
+<td>Furosemide 40</td>
+<td>1/2 cp</td>
+<td>Atoandro alohan'ny sakafo</td>
 </tr>
+
 <tr>
-<td>Turbovas</td>
-<td></td>
-<td></td>
-<td></td>
-<td>X</td>
-<td></td>
-<td></td>
+<td class="check"><input type="checkbox"></td>
+<td>ZALP</td>
+<td>1/4 cp</td>
+<td>Hariva</td>
 </tr>
-<tr>
-<td>Madetoxyl</td>
-<td>X</td>
-<td></td>
-<td>X</td>
-<td></td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>Creon</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Spasfon</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Protorange</td>
-<td></td>
-<td></td>
-<td>X</td>
-<td></td>
-<td>X</td>
-<td></td>
-</tr>
-</tbody>
+
 </table>
-</section>
+
+<footer>
+Medicine checklist – update anytime if your prescription changes.
+</footer>
+
+</div>
+
 </body>
 </html>
