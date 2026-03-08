@@ -1,25 +1,23 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mg">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ireo Fanafodiko</title>
+<title>Fanafody Isan'andro</title>
 
 <style>
+
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background:#f4f7fb;
+    background:#f2f6fb;
     margin:0;
     padding:20px;
 }
 
 .container{
-    max-width:900px;
+    max-width:850px;
     margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 h1{
@@ -27,104 +25,207 @@ h1{
     color:#2c3e50;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
+.section{
+    background:white;
     margin-top:20px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.08);
 }
 
-th, td{
-    padding:12px;
-    border-bottom:1px solid #ddd;
-    text-align:left;
+.section h2{
+    margin-top:0;
+    color:#1f4e79;
 }
 
-th{
-    background:#2c7be5;
-    color:white;
+.current{
+    border:2px solid #2c7be5;
 }
 
-tr:hover{
-    background:#f1f5ff;
+ul{
+    list-style:none;
+    padding:0;
 }
 
-.check{
+li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:10px;
+    margin-bottom:8px;
+    border-left:5px solid #2c7be5;
+    background:#f7f9fc;
+    border-radius:5px;
+}
+
+.medicine{
+    font-weight:bold;
+}
+
+.note{
+    color:#555;
+    font-size:0.95em;
+}
+
+.footer{
     text-align:center;
-}
-
-footer{
-    margin-top:20px;
-    text-align:center;
+    margin-top:25px;
     font-size:0.9em;
-    color:#666;
+    color:#777;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>📋Ireo Fanafodiko</h1>
+<h1>📋 Fanafody Isan'andro</h1>
 
-<table>
-<tr>
-<th>✓</th>
-<th>Fanafody</th>
-<th>Daozy</th>
-<th>Isaka ny</th>
-</tr>
+<div id="schedule"></div>
 
-<tr>
-<td class="check"><input type="checkbox"></td>
-<td>Tres Orix sp</td>
-<td>1 famarana lehibe</td>
-<td>Alina</td>
-</tr>
-
-<tr>
-<td class="check"><input type="checkbox"></td>
-<td>Protorannge sp</td>
-<td>1 sotro lehibe</td>
-<td>30 mn alohan'ny sakafo atoandro</td>
-</tr>
-
-<tr>
-<td class="check"><input type="checkbox"></td>
-<td>Tanjake</td>
-<td>1 sotro lehibe maraina + 1 sotro lehibe atoandro</td>
-<td>Maraina & Atoandro</td>
-</tr>
-
-<tr>
-<td class="check"><input type="checkbox"></td>
-<td>Ody vato</td>
-<td>-</td>
-<td>Atao rano fisotro</td>
-</tr>
-
-<tr>
-<td class="check"><input type="checkbox"></td>
-<td>Furosemide 40</td>
-<td>1/2 cp</td>
-<td>Atoandro alohan'ny sakafo</td>
-</tr>
-
-<tr>
-<td class="check"><input type="checkbox"></td>
-<td>ZALP</td>
-<td>1/4 cp</td>
-<td>Hariva</td>
-</tr>
-
-</table>
-
-<footer>
-Medicine checklist – update anytime if your prescription changes.
-</footer>
+<div class="footer">
+Checkboxes reset automatically every day.
+</div>
 
 </div>
 
+<script>
+
+/* =========================
+   EASY TO EDIT MEDICINE LIST
+   ========================= */
+
+const medicines = {
+
+"MARAINA":[
+{
+name:"Tanjake",
+note:"1 sotro lehibe alohan'ny sakafo"
+}
+],
+
+"ATOANDRO":[
+{
+name:"Protorange",
+note:"1 sotro lehibe 30 minitra alohan'ny sakafo"
+},
+{
+name:"Furosémide",
+note:"1/2 comprimé alohan'ny sakafo"
+},
+{
+name:"Tanjake",
+note:"1 sotro lehibe aorian'ny sakafo"
+}
+],
+
+"HARIVA":[
+{
+name:"TDLP",
+note:"1/4 comprimé ao anaty sakafo"
+}
+],
+
+"ALINA":[
+{
+name:"Tres Orix",
+note:"1 famarana lehibe"
+}
+]
+
+};
+
+
+/* =========================
+   BUILD PAGE AUTOMATICALLY
+   ========================= */
+
+const container = document.getElementById("schedule");
+
+for (const period in medicines){
+
+const section=document.createElement("div");
+section.className="section";
+
+const title=document.createElement("h2");
+title.textContent=period;
+section.appendChild(title);
+
+const list=document.createElement("ul");
+
+medicines[period].forEach((med,index)=>{
+
+const li=document.createElement("li");
+
+const checkbox=document.createElement("input");
+checkbox.type="checkbox";
+checkbox.id=period+"_"+index;
+
+li.appendChild(checkbox);
+
+const text=document.createElement("div");
+
+text.innerHTML=
+"<div class='medicine'>"+med.name+"</div>"+
+"<div class='note'>"+med.note+"</div>";
+
+li.appendChild(text);
+
+list.appendChild(li);
+
+});
+
+section.appendChild(list);
+container.appendChild(section);
+
+}
+
+
+/* =========================
+   DAILY RESET
+   ========================= */
+
+const today=new Date().toDateString();
+const savedDay=localStorage.getItem("medicine_day");
+
+if(savedDay!==today){
+localStorage.clear();
+localStorage.setItem("medicine_day",today);
+}
+
+document.querySelectorAll("input[type=checkbox]").forEach(cb=>{
+const saved=localStorage.getItem(cb.id);
+cb.checked=saved==="true";
+
+cb.addEventListener("change",()=>{
+localStorage.setItem(cb.id,cb.checked);
+});
+});
+
+
+/* =========================
+   HIGHLIGHT CURRENT TIME
+   ========================= */
+
+const hour=new Date().getHours();
+
+let currentPeriod="";
+
+if(hour<10) currentPeriod="MARAINA";
+else if(hour<15) currentPeriod="ATOANDRO";
+else if(hour<19) currentPeriod="HARIVA";
+else currentPeriod="ALINA";
+
+document.querySelectorAll(".section").forEach(sec=>{
+if(sec.querySelector("h2").textContent===currentPeriod){
+sec.classList.add("current");
+}
+});
+
+</script>
+
 </body>
 </html>
+```
